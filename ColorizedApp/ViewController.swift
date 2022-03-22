@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var blueSlider: UISlider!
     @IBOutlet var closeButton: UIButton!
     
+    weak var delegate: Delegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +75,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func closeButtonAction() {
+        delegate?.update(color: colorView.backgroundColor!)
         dismiss(animated: true)
     }
     
